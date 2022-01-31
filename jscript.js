@@ -1,5 +1,6 @@
 
 
+const gridBtn = document.querySelector('#btnGridSize');
 const content=document.querySelector('div.content');
 const gridContainer= document.createElement('div')
 gridContainer.setAttribute('class', 'gridContainer');
@@ -17,12 +18,39 @@ for(let i= 0; (i< rows * cols);i++){
     }
 }
 
+
+function newGrid(){
+    let newNum = prompt("Please enter a number between 4-100 for new grid",);
+    
+    if (!newNum){
+        return;
+    }else{
+        
+    while ((newNum < 4) || (newNum >100) || (!Number.isInteger(parseInt(newNum))) ){
+        newNum = prompt("Please enter number between 4-100 for new grid",);
+    }}
+
+    
+
+    rows = parseInt(newNum);
+    cols = parseInt(newNum);
+
+        while (gridContainer.firstChild){
+        gridContainer.removeChild(gridContainer.firstChild);
+    }
+
+poplateGrid(rows,cols);
+}
+
+
 poplateGrid(16,16);
 
+
+gridBtn.addEventListener('click', newGrid);
 
 
 /*
 ##########To Work on next #########
-create a change size button from 4-100
-the event listener to remove current element replace with new variables
+hover function to change color of grid items
+
 */
