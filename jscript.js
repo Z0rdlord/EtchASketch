@@ -18,6 +18,11 @@ for(let i= 0; (i< rows * cols);i++){
     }
 }
 
+let paintCells = () => gridItems.forEach(e => e.addEventListener('mouseover', (e)=>{
+    e.target.style.backgroundColor = "red";
+}
+));
+
 
 function newGrid(){
     let newNum = prompt("Please enter a number between 4-100 for new grid",);
@@ -40,17 +45,20 @@ function newGrid(){
     }
 
 poplateGrid(rows,cols);
+const gridItems = document.querySelectorAll('div.gridItem');
+let paintCells = () => gridItems.forEach(e => e.addEventListener('mouseover', (e)=>{
+    e.target.style.backgroundColor = "red";
+}
+));
+paintCells();
+
 }
 
 
 poplateGrid(16,16);
 
+const gridItems = document.querySelectorAll('div.gridItem');
 
 gridBtn.addEventListener('click', newGrid);
 
-
-/*
-##########To Work on next #########
-hover function to change color of grid items
-
-*/
+paintCells();
